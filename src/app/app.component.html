@@ -1,0 +1,17 @@
+<div class="app-container">
+  <mat-toolbar class="app-toolbar">
+    <span class="app-title">A Stain Flooring</span>
+    <span class="toolbar-spacer"></span>
+    <nav>
+      <a mat-button routerLink="/home" routerLinkActive="active-link">Home</a>
+      <a mat-button routerLink="/customer" routerLinkActive="active-link">Customer Info</a>
+      <a mat-button routerLink="/order" routerLinkActive="active-link">Order Estimate</a>
+    </nav>
+  </mat-toolbar>
+
+  <div *ngIf="loading" class="spinner-overlay">
+    <mat-spinner diameter="50"></mat-spinner> </div>
+
+  <div class="content-area">
+    <router-outlet></router-outlet> </div>
+</div>

@@ -1,0 +1,197 @@
+/* Styling for the main order card */
+.order-card {
+  max-width: 700px; /* Maximum width for the card */
+  width: 90%; /* Responsive width */
+  margin: 20px auto; /* Center the card horizontally with some margin */
+  padding: 20px; /* Padding inside the card */
+  background-color: #fff; /* White background for the card */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for the card title */
+.card-title {
+  color: #333; /* Black text for the title */
+  font-size: 2em; /* Larger font size */
+  text-align: center; /* Center align the title */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+/* Styling for customer information section */
+.customer-info {
+  background-color: #f9f9f9; /* Slightly lighter background */
+  border: 1px solid #eee; /* Light border */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.customer-info h3 {
+  color: #333;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.customer-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Styling for message when no customer data is found */
+.no-customer-data {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffe0b2; /* Light orange background for warning */
+  border: 1px solid #ffb74d;
+  border-radius: 8px;
+  color: #e65100; /* Darker orange text */
+  margin-bottom: 20px;
+}
+
+.no-customer-data a {
+  color: #e65100;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Styling for the order form section */
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form fields and buttons */
+}
+
+/* Styling for full-width form fields */
+.full-width-field {
+  width: 100%;
+}
+
+/* Styling for the estimate button */
+.estimate-button {
+  background-color: #333; /* Black background */
+  color: #FFD700; /* Gold text */
+  font-size: 1.1em;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center; /* Center button horizontally */
+}
+
+.estimate-button:hover:not([disabled]) {
+  background-color: #555; /* Darker black on hover */
+  transform: translateY(-2px);
+}
+
+.estimate-button[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Styling for the estimate result display */
+.estimate-result {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #FFD700; /* Gold border */
+  border-radius: 12px;
+  background-color: #fffbe6; /* Light yellow background */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.estimate-result h3 {
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.cost-display {
+  font-size: 2.5em; /* Large font for the cost */
+  font-weight: bold;
+  color: #333; /* Black color for the cost */
+  margin-bottom: 15px;
+}
+
+/* Styling for the discount message */
+.discount-message {
+  color: #28a745; /* Green color for discount message */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Space between icon and text */
+  margin-bottom: 20px;
+}
+
+.discount-icon {
+  color: #28a745; /* Green icon */
+}
+
+/* Styling for the send email button */
+.send-email-button {
+  background-color: #FFD700; /* Gold background */
+  color: #333; /* Black text */
+  font-size: 1.1em;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+}
+
+.send-email-button:hover:not([disabled]) {
+  background-color: #e0b800; /* Darker gold on hover */
+  transform: translateY(-2px);
+}
+
+.send-email-button[disabled] {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Custom Snackbar Styles */
+/* These styles need to be global or in a style.css file,
+   or encapsulated if using Angular's ViewEncapsulation.None */
+/* For simplicity, you can add these to src/styles.css or app.component.css */
+.snackbar-error {
+  background-color: #f44336 !important; /* Red background */
+  color: white !important;
+}
+
+.snackbar-success {
+  background-color: #4caf50 !important; /* Green background */
+  color: white !important;
+}
+
+.snackbar-warning {
+  background-color: #ff9800 !important; /* Orange background */
+  color: white !important;
+}
+
+.snackbar-info {
+  background-color: #2196f3 !important; /* Blue background */
+  color: white !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .order-card {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .card-title {
+    font-size: 1.8em; /* Adjust title font size */
+  }
+
+  .estimate-button, .send-email-button {
+    font-size: 1em; /* Adjust button font size */
+    padding: 8px 20px; /* Adjust button padding */
+  }
+
+  .cost-display {
+    font-size: 2em; /* Adjust cost display font size */
+  }
+}

@@ -1,0 +1,66 @@
+<mat-card class="order-card">
+  <mat-card-header>
+    <mat-card-title class="card-title">Order Estimate</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="card-content">
+    <div *ngIf="customerData" class="customer-info">
+      <h3>Customer Details:</h3>
+      <p><strong>Name:</strong> {{ customerData.customerName }}</p>
+      <p><strong>Email:</strong> {{ customerData.email }}</p>
+      <p><strong>Phone:</strong> {{ customerData.phone }}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div *ngIf="!customerData" class="no-customer-data">
+      <p>No customer data available. Please go to the <a routerLink="/customer">Customer Information</a> page to enter details.</p>
+    </div>
+
+    <div class="order-form" *ngIf="customerData">
+      <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Select Color</mat-label>
+        <mat-select [(ngModel)]="selectedColor" name="color" required>
+          <mat-option *ngFor="let color of colors" [value]="color">
+            {{ color }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="!selectedColor">Color selection is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Select Square Footage</mat-label>
+        <mat-select [(ngModel)]="selectedSqFt" name="sqFt" required>
+          <mat-option *ngFor="let sqFt of sqFtOptions" [value]="sqFt">
+            {{ sqFt }} sq ft
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="selectedSqFt === null">Square footage selection is required.</mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="calculateEstimate()"
+        [disabled]="!selectedColor || selectedSqFt === null"
+        class="estimate-button">
+        Calculate Estimate
+      </button>
+
+      <div *ngIf="estimateCost !== null" class="estimate-result">
+        <h3>Your Estimated Cost:</h3>
+        <p class="cost-display">${{ estimateCost | number:'1.2-2' }}</p>
+        <p *ngIf="discountApplied" class="discount-message">
+          <mat-icon class="discount-icon">star</mat-icon> A 10% discount has been applied for orders over 2000 sq ft!
+        </p>
+
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="sendEstimateEmail()"
+          [disabled]="estimateCost === null"
+          class="send-email-button">
+          Send Estimate via Email
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

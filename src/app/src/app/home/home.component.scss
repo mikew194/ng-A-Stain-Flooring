@@ -1,0 +1,83 @@
+/* Styling for the main home card */
+.home-card {
+  max-width: 800px; /* Maximum width for the card */
+  width: 90%; /* Responsive width */
+  margin: 20px auto; /* Center the card horizontally with some margin */
+  padding: 20px; /* Padding inside the card */
+  text-align: center; /* Center align text content */
+  background-color: #fff; /* White background for the card */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for the card title */
+.card-title {
+  color: #333; /* Black text for the title */
+  font-size: 2.2em; /* Larger font size */
+  margin-bottom: 15px; /* Space below the title */
+}
+
+/* Styling for the card content area */
+.card-content {
+  padding: 20px 0; /* Vertical padding */
+}
+
+/* Styling for the mock company image */
+.company-image {
+  max-width: 100%; /* Ensure image is responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
+  margin-bottom: 20px; /* Space below the image */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for the image */
+}
+
+/* Styling for the company slogan paragraph */
+.company-slogan {
+  font-size: 1.1em; /* Slightly larger font size for readability */
+  line-height: 1.6; /* Improved line spacing */
+  color: #555; /* Dark gray text color */
+  margin-bottom: 20px; /* Space below the slogan */
+}
+
+/* Styling for the card actions (buttons) */
+.card-actions {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  padding-top: 15px; /* Padding above buttons */
+}
+
+/* Styling for the primary button */
+.mat-raised-button.mat-primary {
+  background-color: #333; /* Black background for the button */
+  color: #FFD700; /* Gold text color */
+  font-size: 1.1em; /* Larger font size for the button text */
+  padding: 10px 25px; /* Larger padding for a more prominent button */
+  border-radius: 8px; /* Rounded corners for the button */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+/* Hover effect for the primary button */
+.mat-raised-button.mat-primary:hover {
+  background-color: #555; /* Darker black on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .home-card {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .card-title {
+    font-size: 1.8em; /* Adjust title font size */
+  }
+
+  .company-slogan {
+    font-size: 1em; /* Adjust slogan font size */
+  }
+
+  .mat-raised-button.mat-primary {
+    font-size: 1em; /* Adjust button font size */
+    padding: 8px 20px; /* Adjust button padding */
+  }
+}

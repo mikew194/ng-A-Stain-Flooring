@@ -1,0 +1,43 @@
+<mat-card class="customer-card">
+  <mat-card-header>
+    <mat-card-title class="card-title">Customer Information</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="card-content">
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="customer-form">
+      <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Customer Name</mat-label>
+        <input matInput formControlName="customerName" placeholder="Enter customer name">
+        <mat-error *ngIf="customerForm.get('customerName')?.hasError('required') && customerForm.get('customerName')?.touched">
+          Customer Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="Enter email address">
+        <mat-error *ngIf="customerForm.get('email')?.hasError('required') && customerForm.get('email')?.touched">
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="customerForm.get('email')?.hasError('email') && customerForm.get('email')?.touched">
+          Please enter a valid email address.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width-field">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" type="tel" placeholder="Enter phone number (e.g., 1234567890)">
+        <mat-error *ngIf="customerForm.get('phone')?.hasError('required') && customerForm.get('phone')?.touched">
+          Phone number is required.
+        </mat-error>
+        <mat-error *ngIf="customerForm.get('phone')?.hasError('pattern') && customerForm.get('phone')?.touched">
+          Please enter a 10-digit phone number.
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="customerForm.invalid" class="submit-button">
+        Proceed to Order
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
