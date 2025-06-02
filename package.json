@@ -1,6 +1,7 @@
 {
   "name": "ng-a-stain-flooring",
   "version": "0.0.0",
+  "homepage": "https://mikew194.github.io/ng-a-stain-flooring",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

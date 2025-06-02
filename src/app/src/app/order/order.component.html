@@ -27,13 +27,15 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width-field">
-        <mat-label>Select Square Footage</mat-label>
-        <mat-select [(ngModel)]="selectedSqFt" name="sqFt" required>
-          <mat-option *ngFor="let sqFt of sqFtOptions" [value]="sqFt">
-            {{ sqFt }} sq ft
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="selectedSqFt === null">Square footage selection is required.</mat-error>
+        <mat-label>Enter Square Footage</mat-label>
+        <input matInput
+               type="number"
+               [(ngModel)]="selectedSqFt"
+               name="sqFt"
+               required
+               min="1"
+               placeholder="e.g. 500" />
+        <mat-error *ngIf="!selectedSqFt">Square footage is required.</mat-error>
       </mat-form-field>
 
       <button
@@ -48,11 +50,12 @@
       <div *ngIf="estimateCost !== null" class="estimate-result">
         <h3>Your Estimated Cost:</h3>
         <p class="cost-display">${{ estimateCost | number:'1.2-2' }}</p>
-        <p *ngIf="discountApplied" class="discount-message">
-          <mat-icon class="discount-icon">star</mat-icon> A 10% discount has been applied for orders over 2000 sq ft!
+        <p class="discount-message">
+          <mat-icon class="discount-icon">star</mat-icon> Note: Colors and Images are allways free.
         </p>
 
         <button
+          id="sendEstimateEmail"
           mat-raised-button
           color="accent"
           (click)="sendEstimateEmail()"
