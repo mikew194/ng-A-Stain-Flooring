@@ -36,7 +36,7 @@ export class OrderComponent implements OnInit {
   discountApplied: boolean = false; // Flag to indicate if discount was applied
 
   // Predefined lists for colors and square footage options
-  colors: string[] = ['Black', 'Gold', 'Lt Gray', 'Brown', 'Red', 'Blue', 'Green'];
+  colors: string[] = [ 'Base', 'Black', 'Gold', 'Lt Gray', 'Brown', 'Red', 'Blue', 'Green'];
   sqFtOptions: number[] = [500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000];
 
   constructor(private snackBar: MatSnackBar) {} // Inject MatSnackBar
@@ -62,13 +62,13 @@ export class OrderComponent implements OnInit {
    */
   calculateEstimate(): void {
     if (this.selectedColor && this.selectedSqFt !== null) {
-      const baseCostPerSqFt = 5; // Example base cost per square foot
+      const baseCostPerSqFt = 3.75; // Example base cost per square foot
       let totalCost = this.selectedSqFt * baseCostPerSqFt;
       this.discountApplied = false; // Reset discount flag
 
       // Apply discount if square footage is greater than 2000
-      if (this.selectedSqFt > 2000) {
-        const discountRate = 0.10; // 10% discount
+      if (false) {
+        const discountRate = 1.0; // 10% discount
         totalCost = totalCost * (1 - discountRate);
         this.discountApplied = true;
         this.snackBar.open('A 10% discount has been applied!', 'Dismiss', {

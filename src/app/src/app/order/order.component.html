@@ -37,6 +37,9 @@
                placeholder="e.g. 500" />
         <mat-error *ngIf="!selectedSqFt">Square footage is required.</mat-error>
       </mat-form-field>
+      <p class="discount-message">
+          <mat-icon class="discount-icon">star</mat-icon> Note: Colors and Images are allways free.
+      </p>
 
       <button
         mat-raised-button
@@ -50,9 +53,7 @@
       <div *ngIf="estimateCost !== null" class="estimate-result">
         <h3>Your Estimated Cost:</h3>
         <p class="cost-display">${{ estimateCost | number:'1.2-2' }}</p>
-        <p class="discount-message">
-          <mat-icon class="discount-icon">star</mat-icon> Note: Colors and Images are allways free.
-        </p>
+      
 
         <button
           id="sendEstimateEmail"
